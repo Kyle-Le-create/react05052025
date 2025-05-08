@@ -1,0 +1,55 @@
+body {
+  background-color: rgba(58, 58, 146, 0.741);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-container {
+  background-color: #f5f7fa;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  color: grey;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.full-name {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  background-color: #5cb85c;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}

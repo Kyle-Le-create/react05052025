@@ -1,0 +1,55 @@
+.box-model {
+  border: 10px solid black;
+  padding: 25px;
+  width: 200px;
+  height: 150px;
+
+  /* default box-sizing */
+  /* box-sizing: content-box; */
+
+  /* box-sizing: border-box; */
+  text-align: center;
+  line-height: 150px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+/* content box */
+/* the width of the element only applies to the content */
+/* actual width of the element would be bigger due to padding and border */
+
+/* border box */
+/* the width of the element = content + padding + 2 + border * 2 */
+/* more intuitive for programmers */
+
+/* with a desktop first approach */
+/* write all style with desktop css view first*/
+/* in the media query, you will be writing styles for the mobile view */
+
+/* then write mobile version inside the media query */
+@media screen and (max-width: 500) {
+  .some-element {
+    visibility: none;
+  }
+}
+
+th,
+td {
+  border: 1px solid grey;
+}
+
+table {
+  border-collapse: collapse;
+  width: 60%;
+}
+
+td {
+  text-align: center;
+}
