@@ -6,6 +6,8 @@ Array.prototype.myMap = function (callback) {
   }
   return result;
 };
+const arr = [1, 2, 3, 4];
+console.log(arr.myMap((x) => x * 2));
 
 // Custom filter
 Array.prototype.myFilter = function (callback) {
@@ -17,6 +19,7 @@ Array.prototype.myFilter = function (callback) {
   }
   return result;
 };
+console.log(arr.myFilter((x) => x % 2 === 0));
 
 // Custom reduce
 Array.prototype.myReduce = function (callback, initialValue) {
@@ -29,3 +32,4 @@ Array.prototype.myReduce = function (callback, initialValue) {
 
   return accumulator;
 };
+console.log(arr.myReduce((acc, x) => acc + x, 0));
