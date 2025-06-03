@@ -1,4 +1,3 @@
-import React from "react";
 import RecipeFetcher from "./RecipeFetcher";
 
 export default function App() {
