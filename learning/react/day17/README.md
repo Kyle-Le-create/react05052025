@@ -129,3 +129,19 @@ Lighthouse: Performance audits
 
 Web Vitals: LCP, FID, CLS tracking
 ```
+
+Debounce Explanation:
+
+Debounce is a technique used to delay a function's execution until after a certain period of inactivity. In React, it's commonly used with inputs to prevent functions like API calls from firing on every keystroke.
+
+Purpose of Debounce:
+
+The purpose of debounce is to improve performance and user experience by:
+
+Reducing the number of unnecessary function calls (e.g. API requests).
+
+Ensuring actions are only taken when the user pauses, not during rapid input.
+
+Preventing lag, server overload, or flickering UI.
+
+Example use cases: search bars, resizing events, and form validations.

@@ -1,27 +1,31 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../store";
+import { addTodo } from "../reducers/todoReducer";
 
 function TodoForm() {
-  const [input, setInput] = useState("");
+  const [task, setTask] = useState("");
   const dispatch = useDispatch();
+  const inputRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!input.trim()) return;
-    dispatch(addTodo(input));
-    setInput("");
+    if (!task.trim()) {
+      inputRef.current.focus();
+      return;
+    }
+    dispatch(addTodo(task));
+    setTask("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
+        ref={inputRef}
         type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Enter a todo"
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
       />
-      <button type="submit">Add</button>
+      <button type="submit">+</button>
     </form>
   );
 }

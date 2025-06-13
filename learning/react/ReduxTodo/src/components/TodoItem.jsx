@@ -1,19 +1,17 @@
 import { useDispatch } from "react-redux";
-import { toggleTodo, deleteTodo } from "../store";
+import { deleteTodo, toggleTodo } from "../reducers/todoReducer";
 
 function TodoItem({ todo }) {
   const dispatch = useDispatch();
 
   return (
     <li>
-      <label>
-        <input
-          type="checkbox"
-          checked={todo.completed}
-          onChange={() => dispatch(toggleTodo(todo.id))}
-        />
-        <span className={todo.completed ? "completed" : ""}>{todo.text}</span>
-      </label>
+      <input
+        type="checkbox"
+        checked={!!todo.completed}
+        onChange={() => dispatch(toggleTodo(todo.id))}
+      />
+      <span className={todo.completed ? "todo-item" : ""}>{todo.task}</span>
       <button onClick={() => dispatch(deleteTodo(todo.id))}>🗑️</button>
     </li>
   );

@@ -10,17 +10,21 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.body-light {
   background-color: lightblue;
 }
 
-.app {
-  background-color: white;
-  border-radius: 15px;
-  padding: 2rem;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.body-dark {
+  background-color: #111;
+}
+
+.App {
   text-align: center;
+  padding: 50px;
+  border-radius: 15px;
+  height: 300px;
+  background-color: #f4f4f4;
 }
 
 .title {
@@ -56,6 +60,15 @@ form button:hover {
   background-color: rgb(82, 24, 144);
 }
 
+.toggle-button {
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 ul {
   display: flex;
   flex-direction: column;
@@ -65,25 +78,12 @@ ul {
 
 li {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 0.5rem;
-  background: white;
-  margin: 0.5rem 0;
-  border-radius: 5px;
 }
 
-label {
-  display: flex;
-  align-items: center;
-  gap: 75px;
-  flex: 1;
-}
-
-.completed {
+.todo-item {
   text-decoration: line-through;
-  color: gray;
+  color: grey;
 }
 
 li button {
