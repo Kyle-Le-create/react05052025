@@ -1,33 +1,39 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../reducers/todoReducer";
+import { addTodoThunk } from "../redux/reducers/todoReducer";
 
 function TodoForm() {
   const [task, setTask] = useState("");
+  const [description, setDescription] = useState("");
   const dispatch = useDispatch();
-  const inputRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!task.trim()) {
-      inputRef.current.focus();
-      return;
+    if (task.trim() && description.trim()) {
+      dispatch(addTodoThunk({ task, description }));
+      setTask("");
+      setDescription("");
+    } else {
+      alert("Please enter both task name and a description.");
     }
-    dispatch(addTodo(task));
-    setTask("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
-        ref={inputRef}
-        type="text"
         value={task}
         onChange={(e) => setTask(e.target.value)}
+        placeholder="Enter Task..."
       />
-      <button type="submit">+</button>
+      <textarea
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Enter Description..."
+      />
+      <button type="submit" className="add-button">
+        Add Todo
+      </button>
     </form>
   );
 }
-
 export default TodoForm;

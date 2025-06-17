@@ -1,15 +1,28 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTodosThunk } from "../redux/reducers/todoReducer";
 import TodoItem from "./TodoItem";
+import TodoForm from "./TodoForm";
 
 function TodoList() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos.todosList);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodosThunk());
+  }, [dispatch]);
 
   return (
-    <ul>
-      {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
-      ))}
-    </ul>
+    <div>
+      <h1>Todo List</h1>
+      <TodoForm />
+
+      <div className="items-list">
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} todo={todo} />
+        ))}
+      </div>
+    </div>
   );
 }
 

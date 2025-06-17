@@ -1,19 +1,13 @@
-import { useDispatch } from "react-redux";
-import { deleteTodo, toggleTodo } from "../reducers/todoReducer";
+import { Link } from "react-router-dom";
 
 function TodoItem({ todo }) {
-  const dispatch = useDispatch();
-
   return (
-    <li>
-      <input
-        type="checkbox"
-        checked={!!todo.completed}
-        onChange={() => dispatch(toggleTodo(todo.id))}
-      />
-      <span className={todo.completed ? "todo-item" : ""}>{todo.task}</span>
-      <button onClick={() => dispatch(deleteTodo(todo.id))}>🗑️</button>
-    </li>
+    <div className="todo-item">
+      <Link to={`/todos/${todo.id}`}>
+        <strong>{todo.task}</strong> -{" "}
+        {todo.completed ? "Completed" : "Not Completed"}
+      </Link>
+    </div>
   );
 }
 

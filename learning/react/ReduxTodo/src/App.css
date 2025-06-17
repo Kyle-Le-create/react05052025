@@ -1,0 +1,76 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.body-light {
+  background-color: lightblue;
+}
+
+.body-dark {
+  background-color: #111;
+}
+
+.App {
+  text-align: center;
+  padding: 50px;
+  border-radius: 15px;
+  height: 350px;
+  width: 250px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+.add-button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: rgb(107, 71, 146);
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: rgb(82, 24, 144);
+}
+
+.toggle-button {
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.items-list {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
