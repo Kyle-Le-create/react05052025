@@ -13,31 +13,38 @@ export const users = [
   },
 ];
 
+// Encode password by reversing it + appending "encoded"
 export const encodePassword = (password) => {
-  // encode the password by reversing it and add "encoded" at the end
-  // for example, "password1" => "1drowssapencoded"
+  return password.split("").reverse().join("") + "encoded";
 };
 
+// Decode password by removing "encoded" + reversing back
 export const decodePassword = (encrypted) => {
-  // decode the password
-  // for example, "1drowssapencoded" => "password1"
+  const stripped = encrypted.replace(/encoded$/, "");
+  return stripped.split("").reverse().join("");
 };
 
+// Fetch user by email; throw error if not found
 export const getUserByEmail = async (email) => {
-  // fetch a user by email
-  // should throw an error with message "User not found" if the user is not found
-  // e.g. { name: "Leanne Graham", username: "Bret", email: "leanne.graham@email.com", password: "1drowssapencoded" }
+  const user = users.find((u) => u.email === email);
+  if (!user) throw new Error("User not found");
+  return user;
 };
 
+// Verify the password; throw error if incorrect
 export const verifyPassword = async (password, encrypted) => {
-  // verify the password
-  // should throw an error with message "Invalid password" if the password is incorrect
+  const decoded = decodePassword(encrypted);
+  if (password !== decoded) throw new Error("Invalid password");
+  return true;
 };
 
+// Login: fetch user by email and verify password
 export const login = async (email, password) => {
-  // login the user with email and password
-  // should return the user and token if the login is successful
-  // e.g. { name: "Leanne Graham", username: "Bret", email: "leanne.graham@email.com", token: "token" }
-  // should return the error message if the login is unsuccessful
-  // e.g. "User not found", "Invalid password"
+  try {
+    const user = await getUserByEmail(email);
+    await verifyPassword(password, user.password);
+    return user;
+  } catch (err) {
+    throw err;
+  }
 };
